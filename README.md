@@ -232,8 +232,17 @@ Still to fix in Figma:
 
 ## How I used AI
 
-<!-- TODO (Lovisa): add how you used AI in tasks 1–3, e.g. prioritization, cleaning up the Figma file,
-     setting up the variables, and what you kept, changed or threw away. -->
+**Task 1, prioritization.** I used AI to synthesise my own observations of the screen together with the
+feedback in the brief, and to challenge my prioritization: arguing against my first pick and pointing
+out what I was leaving out. The prioritization and its reasoning are mine.
+
+**Task 2, cleaning up the system.** No AI. Restructuring the Figma file, the variables and the three
+components was manual work. It took longer than planned and cut into the time I had for task 3.
+
+**Tasks 3 and 4, the page and the code.** I moved back and forth between Figma and Claude, mostly
+iterating on the filtering and sorting interactions: designing in Figma, building and testing it in code,
+then adjusting the design. I ran out of time, so I spent less time on ideation and exploring alternatives
+than I wanted to. That's the first thing I'd go back to.
 
 For the code I worked with Claude Code (Claude Opus) in the Claude desktop app, connected to the Figma file
 through the Figma MCP server.
@@ -245,10 +254,23 @@ through the Figma MCP server.
 - **Design to code.** Claude pulled spacing, text styles, variables and icons from each Figma component and
   frame through the MCP server, so the code uses the same names as the file. That also surfaced the token
   and component problems listed above, and the KPI check against the data.
+- **Demo states.** Claude built the demo states for checking how the page behaves before there's data. The
+  first version invented a new partner. After the audit below, only one is left: Sara's real data with the
+  brands removed.
 - **Keeping it honest.** I asked Claude to audit what came from the data and what it had made up. That
-  removed an invented demo partner and unsupported copy, and produced the list in this README.
+  removed the invented partner and unsupported copy, and produced the list in this README.
 - **Checking.** Claude checked the page in a browser at 1440, 720 and 360 px: sorting, both header filters,
   pagination and page size, the no-match and no-brands states, the tooltips, and no sideways page scroll.
-  It also searched the CSS for hard-coded values. I reviewed the result and adjusted
-  <!-- TODO: what you changed -->.
-- **Where I didn't follow the AI or the frame.** <!-- TODO -->
+  It also searched the CSS for hard-coded values.
+
+**Where I steered or overrode it.**
+
+- Claude's first version put the status filter above the table. I moved it, and a new category filter,
+  into the column headers. The filters only change the table, so they belong with it, not next to the page
+  filters that change everything.
+- Claude suggested dropping pagination and showing all 31 rows. I kept the paginated footer from the design.
+- I asked for the whole screen instead of only the table, and for stricter use of tokens and components.
+- After reviewing it in the browser I asked for:
+  - the filter bar and KPI cards to share one grid,
+  - Apply and Reset to stay disabled until there's a change, to make the Apply step visible,
+  - explanations for "Not tracked" and "—" in the table.
