@@ -1,0 +1,1296 @@
+{
+  "_readme": "Fictional data for the Adtraction Partner Overview design case. Every brand, person and number is made up.",
+  "partner": {
+    "id": "P-20931",
+    "name": "Sara Lindqvist",
+    "company": "Vardagsekonomi",
+    "market": "SE",
+    "memberSince": "2023-03-01",
+    "channels": [
+      {
+        "id": "C-5512",
+        "name": "Vardagsekonomi.se",
+        "type": "Blog",
+        "market": "SE"
+      },
+      {
+        "id": "C-5513",
+        "name": "Vardagsekonomi Weekly",
+        "type": "Newsletter",
+        "market": "SE"
+      },
+      {
+        "id": "C-6120",
+        "name": "Vardagsøkonomi.no",
+        "type": "Blog",
+        "market": "NO"
+      }
+    ]
+  },
+  "period": {
+    "label": "Last 30 days",
+    "from": "2026-09-15",
+    "to": "2026-10-14"
+  },
+  "previousPeriod": {
+    "label": "Previous 30 days",
+    "from": "2026-08-16",
+    "to": "2026-09-14"
+  },
+  "displayCurrency": "SEK",
+  "fxToSEK": {
+    "SEK": 1.0,
+    "NOK": 0.97
+  },
+  "definitions": {
+    "uniqueClicks": "De-duplicated clicks on tracking links. null means not tracked (for example some app installs).",
+    "conversions": "Sales or leads attributed to the partner: approved, pending, declined (rejected, won't be paid).",
+    "commission": "Partner earnings in the brand's currency, split the same way. approved can go negative after a reversal (for example a cancelled order, see adjustments). null means not reported yet.",
+    "conversionRate": "Not stored. (approved + pending conversions) / uniqueClicks. null if clicks are null or 0.",
+    "epc": "Earnings per click. Not stored. (approved + pending commission) / uniqueClicks. null if clicks are null or 0.",
+    "previousPeriod": "The same metrics for the previous 30 days (conversions and commission as approved + pending, commission in the brand's currency). null if the partnership is newer.",
+    "currency": "The brand's payout currency. Multiply by fxToSEK to compare or sum across brands.",
+    "market": "One program per market, each with its own id. Names can repeat across markets (Kreditkollen in SE and NO), so key on id.",
+    "tracking": "link = clicks on links. voucher = discount-code redemptions (conversions without clicks). app = app installs.",
+    "status": "State of the partner's partnership with the brand. Known values: active, paused, closing, ended, under_review. The list is open, so expect others.",
+    "statusDetail": "Explains the status in words, or null.",
+    "null vs 0": "null is unknown. 0 is zero.",
+    "dailyTotals": "One row per day, all brands, approved + pending, commission in SEK."
+  },
+  "brands": [
+    {
+      "id": "B-1040",
+      "name": "Kreditkollen",
+      "category": "Finance · Loans",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 18532,
+      "conversions": {
+        "approved": 212,
+        "pending": 96,
+        "declined": 31
+      },
+      "commission": {
+        "approved": 98420.0,
+        "pending": 43960.5,
+        "declined": 14200.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 16010,
+        "conversions": 281,
+        "commission": 139800.0
+      },
+      "lastConversionDate": "2026-10-14",
+      "adjustments": []
+    },
+    {
+      "id": "B-1047",
+      "name": "Kreditkollen",
+      "category": "Finance · Loans",
+      "market": "NO",
+      "currency": "NOK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 9870,
+      "conversions": {
+        "approved": 101,
+        "pending": 64,
+        "declined": 18
+      },
+      "commission": {
+        "approved": 88600.0,
+        "pending": 57400.0,
+        "declined": 9800.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 9420,
+        "conversions": 170,
+        "commission": 151000.0
+      },
+      "lastConversionDate": "2026-10-14",
+      "adjustments": []
+    },
+    {
+      "id": "B-1054",
+      "name": "Kortguiden Plus",
+      "category": "Finance · Credit cards",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 6240,
+      "conversions": {
+        "approved": 58,
+        "pending": 22,
+        "declined": 9
+      },
+      "commission": {
+        "approved": 34800.0,
+        "pending": 13200.0,
+        "declined": 5400.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 7110,
+        "conversions": 101,
+        "commission": 60600.0
+      },
+      "lastConversionDate": "2026-10-13",
+      "adjustments": []
+    },
+    {
+      "id": "B-1061",
+      "name": "Försäkra Smart",
+      "category": "Finance · Insurance",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "paused",
+      "statusDetail": "The brand paused its program on 2026-10-02",
+      "tracking": "link",
+      "uniqueClicks": 1980,
+      "conversions": {
+        "approved": 11,
+        "pending": 3,
+        "declined": 2
+      },
+      "commission": {
+        "approved": 4950.0,
+        "pending": 1350.0,
+        "declined": 900.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 4870,
+        "conversions": 52,
+        "commission": 23400.0
+      },
+      "lastConversionDate": "2026-10-01",
+      "adjustments": []
+    },
+    {
+      "id": "B-1068",
+      "name": "Nordiska Försäkringsförmedlingen Online AB",
+      "category": "Finance · Insurance",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 2875,
+      "conversions": {
+        "approved": 19,
+        "pending": 14,
+        "declined": 4
+      },
+      "commission": {
+        "approved": 8550.0,
+        "pending": 6300.0,
+        "declined": 1800.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 2650,
+        "conversions": 30,
+        "commission": 13500.0
+      },
+      "lastConversionDate": "2026-10-12",
+      "adjustments": []
+    },
+    {
+      "id": "B-1075",
+      "name": "Bostadsrättsförsäkringsjämförelsen.se",
+      "category": "Finance · Insurance",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 1460,
+      "conversions": {
+        "approved": 9,
+        "pending": 5,
+        "declined": 1
+      },
+      "commission": {
+        "approved": 2700.0,
+        "pending": 1500.0,
+        "declined": 300.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 1210,
+        "conversions": 11,
+        "commission": 3300.0
+      },
+      "lastConversionDate": "2026-10-11",
+      "adjustments": []
+    },
+    {
+      "id": "B-1082",
+      "name": "Lånebro",
+      "category": "Finance · Loans",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 4410,
+      "conversions": {
+        "approved": 31,
+        "pending": 40,
+        "declined": 12
+      },
+      "commission": {
+        "approved": 18600.0,
+        "pending": 24000.0,
+        "declined": 7200.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 3980,
+        "conversions": 66,
+        "commission": 47600.0
+      },
+      "lastConversionDate": "2026-10-14",
+      "adjustments": []
+    },
+    {
+      "id": "B-1089",
+      "name": "Aktiestigen",
+      "category": "Finance · Investing",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 3120,
+      "conversions": {
+        "approved": 44,
+        "pending": 18,
+        "declined": 3
+      },
+      "commission": {
+        "approved": 6600.0,
+        "pending": 2700.0,
+        "declined": 450.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 2890,
+        "conversions": 55,
+        "commission": 8250.0
+      },
+      "lastConversionDate": "2026-10-14",
+      "adjustments": []
+    },
+    {
+      "id": "B-1096",
+      "name": "Norrsken Sparkonto",
+      "category": "Finance · Savings",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 2210,
+      "conversions": {
+        "approved": 37,
+        "pending": 9,
+        "declined": 1
+      },
+      "commission": {
+        "approved": 3700.0,
+        "pending": 900.0,
+        "declined": 100.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 2400,
+        "conversions": 50,
+        "commission": 5000.0
+      },
+      "lastConversionDate": "2026-10-11",
+      "adjustments": []
+    },
+    {
+      "id": "B-1103",
+      "name": "Pantsäker",
+      "category": "Finance · Loans",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 640,
+      "conversions": {
+        "approved": 3,
+        "pending": 2,
+        "declined": 4
+      },
+      "commission": {
+        "approved": -340.0,
+        "pending": 460.0,
+        "declined": 920.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 700,
+        "conversions": 9,
+        "commission": 2070.0
+      },
+      "lastConversionDate": "2026-10-09",
+      "adjustments": [
+        {
+          "date": "2026-09-28",
+          "amount": -1040.0,
+          "reason": "Reversal: 2 approved loans were cancelled within the withdrawal period"
+        }
+      ]
+    },
+    {
+      "id": "B-1110",
+      "name": "Fjordkreditt",
+      "category": "Finance · Loans",
+      "market": "NO",
+      "currency": "NOK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 1350,
+      "conversions": {
+        "approved": 9,
+        "pending": 6,
+        "declined": 2
+      },
+      "commission": {
+        "approved": 7650.0,
+        "pending": 5100.0,
+        "declined": 1700.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 1100,
+        "conversions": 12,
+        "commission": 10200.0
+      },
+      "lastConversionDate": "2026-10-10",
+      "adjustments": []
+    },
+    {
+      "id": "B-1117",
+      "name": "Budgetbuddy",
+      "category": "Finance · Apps",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "app",
+      "uniqueClicks": 980,
+      "conversions": {
+        "approved": 120,
+        "pending": 35,
+        "declined": 8
+      },
+      "commission": {
+        "approved": 3600.0,
+        "pending": 1050.0,
+        "declined": 240.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 1020,
+        "conversions": 140,
+        "commission": 4200.0
+      },
+      "lastConversionDate": "2026-10-14",
+      "adjustments": []
+    },
+    {
+      "id": "B-1124",
+      "name": "Hushållskollen",
+      "category": "Finance · Apps",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "app",
+      "uniqueClicks": null,
+      "conversions": {
+        "approved": 48,
+        "pending": 12,
+        "declined": 3
+      },
+      "commission": {
+        "approved": 1440.0,
+        "pending": 360.0,
+        "declined": 90.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": null,
+        "conversions": 52,
+        "commission": 1560.0
+      },
+      "lastConversionDate": "2026-10-13",
+      "adjustments": []
+    },
+    {
+      "id": "B-1131",
+      "name": "Snabbspar",
+      "category": "Finance · Savings",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "suspended",
+      "statusDetail": "Temporarily suspended while the brand updates its terms",
+      "tracking": "link",
+      "uniqueClicks": 260,
+      "conversions": {
+        "approved": 2,
+        "pending": 0,
+        "declined": 0
+      },
+      "commission": {
+        "approved": 200.0,
+        "pending": 0.0,
+        "declined": 0.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 310,
+        "conversions": 4,
+        "commission": 400.0
+      },
+      "lastConversionDate": "2026-09-21",
+      "adjustments": []
+    },
+    {
+      "id": "B-1138",
+      "name": "Bokfixarna",
+      "category": "Business software",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 410,
+      "conversions": {
+        "approved": 6,
+        "pending": 2,
+        "declined": 0
+      },
+      "commission": {
+        "approved": 2400.0,
+        "pending": 800.0,
+        "declined": 0.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 380,
+        "conversions": 7,
+        "commission": 2800.0
+      },
+      "lastConversionDate": "2026-10-06",
+      "adjustments": []
+    },
+    {
+      "id": "B-1145",
+      "name": "Strömbytet",
+      "category": "Energy · Electricity",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 1730,
+      "conversions": {
+        "approved": 26,
+        "pending": 19,
+        "declined": 6
+      },
+      "commission": {
+        "approved": 7800.0,
+        "pending": 5700.0,
+        "declined": 1800.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 1210,
+        "conversions": 28,
+        "commission": 8400.0
+      },
+      "lastConversionDate": "2026-10-14",
+      "adjustments": []
+    },
+    {
+      "id": "B-1152",
+      "name": "Klimatkompis",
+      "category": "Energy · Solar",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 210,
+      "conversions": {
+        "approved": 0,
+        "pending": 1,
+        "declined": 0
+      },
+      "commission": {
+        "approved": 0.0,
+        "pending": 1500.0,
+        "declined": 0.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 140,
+        "conversions": 0,
+        "commission": 0.0
+      },
+      "lastConversionDate": "2026-10-11",
+      "adjustments": []
+    },
+    {
+      "id": "B-1159",
+      "name": "Fiberfröjd",
+      "category": "Telecom · Broadband",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 920,
+      "conversions": {
+        "approved": 12,
+        "pending": 5,
+        "declined": 2
+      },
+      "commission": {
+        "approved": 3600.0,
+        "pending": 1500.0,
+        "declined": 600.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 1150,
+        "conversions": 21,
+        "commission": 6300.0
+      },
+      "lastConversionDate": "2026-10-08",
+      "adjustments": []
+    },
+    {
+      "id": "B-1166",
+      "name": "Mobilfixarna",
+      "category": "Telecom · Mobile",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "closing",
+      "statusDetail": "The program closes on 2026-10-31",
+      "tracking": "link",
+      "uniqueClicks": 760,
+      "conversions": {
+        "approved": 8,
+        "pending": 4,
+        "declined": 1
+      },
+      "commission": {
+        "approved": 1600.0,
+        "pending": 800.0,
+        "declined": 200.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 810,
+        "conversions": 13,
+        "commission": 2600.0
+      },
+      "lastConversionDate": "2026-10-07",
+      "adjustments": []
+    },
+    {
+      "id": "B-1173",
+      "name": "Resekompassen",
+      "category": "Travel",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 1290,
+      "conversions": {
+        "approved": 7,
+        "pending": 15,
+        "declined": 3
+      },
+      "commission": {
+        "approved": 1470.5,
+        "pending": 3150.25,
+        "declined": 630.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 980,
+        "conversions": 16,
+        "commission": 3360.0
+      },
+      "lastConversionDate": "2026-10-13",
+      "adjustments": []
+    },
+    {
+      "id": "B-1180",
+      "name": "Hotellhjälpen",
+      "category": "Travel",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 540,
+      "conversions": {
+        "approved": 3,
+        "pending": 4,
+        "declined": 0
+      },
+      "commission": {
+        "approved": 612.0,
+        "pending": null,
+        "declined": 0.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 600,
+        "conversions": 6,
+        "commission": 1224.0
+      },
+      "lastConversionDate": "2026-10-04",
+      "adjustments": []
+    },
+    {
+      "id": "B-1187",
+      "name": "Resfeber Charter",
+      "category": "Travel",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "ended",
+      "statusDetail": "The partnership ended on 2026-09-12",
+      "tracking": "link",
+      "uniqueClicks": 0,
+      "conversions": {
+        "approved": 0,
+        "pending": 0,
+        "declined": 0
+      },
+      "commission": {
+        "approved": -1250.0,
+        "pending": 0.0,
+        "declined": 0.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 2900,
+        "conversions": 41,
+        "commission": 12000.0
+      },
+      "lastConversionDate": "2026-09-08",
+      "adjustments": [
+        {
+          "date": "2026-09-30",
+          "amount": -1250.0,
+          "reason": "Reversal: 5 bookings were cancelled after the partnership ended"
+        }
+      ]
+    },
+    {
+      "id": "B-1194",
+      "name": "Gröna Kassen",
+      "category": "Food · Meal kits",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "voucher",
+      "uniqueClicks": 0,
+      "conversions": {
+        "approved": 14,
+        "pending": 6,
+        "declined": 2
+      },
+      "commission": {
+        "approved": 2100.0,
+        "pending": 900.0,
+        "declined": 300.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 0,
+        "conversions": 18,
+        "commission": 2700.0
+      },
+      "lastConversionDate": "2026-10-12",
+      "adjustments": []
+    },
+    {
+      "id": "B-1201",
+      "name": "eKlubben",
+      "category": "Shopping · Deals",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 1120,
+      "conversions": {
+        "approved": 21,
+        "pending": 8,
+        "declined": 2
+      },
+      "commission": {
+        "approved": 1050.0,
+        "pending": 400.0,
+        "declined": 100.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 990,
+        "conversions": 26,
+        "commission": 1300.0
+      },
+      "lastConversionDate": "2026-10-12",
+      "adjustments": []
+    },
+    {
+      "id": "B-1208",
+      "name": "Ängla Hudvård",
+      "category": "Health & Beauty",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 2310,
+      "conversions": {
+        "approved": 41,
+        "pending": 22,
+        "declined": 9
+      },
+      "commission": {
+        "approved": 2460.0,
+        "pending": 1320.0,
+        "declined": 540.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 2050,
+        "conversions": 58,
+        "commission": 3480.0
+      },
+      "lastConversionDate": "2026-10-14",
+      "adjustments": []
+    },
+    {
+      "id": "B-1215",
+      "name": "Örtagården Hälsa",
+      "category": "Health & Beauty",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 330,
+      "conversions": {
+        "approved": 2,
+        "pending": 1,
+        "declined": 0
+      },
+      "commission": {
+        "approved": 90.0,
+        "pending": 45.0,
+        "declined": 0.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 410,
+        "conversions": 4,
+        "commission": 180.0
+      },
+      "lastConversionDate": "2026-09-30",
+      "adjustments": []
+    },
+    {
+      "id": "B-1222",
+      "name": "Åsa & Co Inredning",
+      "category": "Home & Interior",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 870,
+      "conversions": {
+        "approved": 5,
+        "pending": 7,
+        "declined": 2
+      },
+      "commission": {
+        "approved": 610.0,
+        "pending": 854.0,
+        "declined": 244.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 760,
+        "conversions": 9,
+        "commission": 1098.0
+      },
+      "lastConversionDate": "2026-10-05",
+      "adjustments": []
+    },
+    {
+      "id": "B-1229",
+      "name": "Hemvakt Larm",
+      "category": "Home · Security",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": null,
+      "tracking": "link",
+      "uniqueClicks": 450,
+      "conversions": {
+        "approved": 4,
+        "pending": 2,
+        "declined": 1
+      },
+      "commission": {
+        "approved": 2000.0,
+        "pending": 1000.0,
+        "declined": 500.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 520,
+        "conversions": 5,
+        "commission": 2500.0
+      },
+      "lastConversionDate": "2026-10-02",
+      "adjustments": []
+    },
+    {
+      "id": "B-1236",
+      "name": "Cykelverket",
+      "category": "Sport & Leisure",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "ended",
+      "statusDetail": "The partnership ended on 2026-09-20",
+      "tracking": "link",
+      "uniqueClicks": 120,
+      "conversions": {
+        "approved": 1,
+        "pending": 0,
+        "declined": 0
+      },
+      "commission": {
+        "approved": 180.0,
+        "pending": 0.0,
+        "declined": 0.0
+      },
+      "previousPeriod": {
+        "uniqueClicks": 690,
+        "conversions": 6,
+        "commission": 1080.0
+      },
+      "lastConversionDate": "2026-09-18",
+      "adjustments": []
+    },
+    {
+      "id": "B-1243",
+      "name": "Motorfixa",
+      "category": "Motor",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "active",
+      "statusDetail": "New partnership since 2026-10-01",
+      "tracking": "link",
+      "uniqueClicks": 85,
+      "conversions": {
+        "approved": 0,
+        "pending": 2,
+        "declined": 0
+      },
+      "commission": {
+        "approved": 0.0,
+        "pending": 600.0,
+        "declined": 0.0
+      },
+      "previousPeriod": null,
+      "lastConversionDate": "2026-10-13",
+      "adjustments": []
+    },
+    {
+      "id": "B-1250",
+      "name": "Pluggpaketet",
+      "category": "Education",
+      "market": "SE",
+      "currency": "SEK",
+      "status": "under_review",
+      "statusDetail": "Your application is under review by the brand",
+      "tracking": "link",
+      "uniqueClicks": 0,
+      "conversions": {
+        "approved": 0,
+        "pending": 0,
+        "declined": 0
+      },
+      "commission": {
+        "approved": 0.0,
+        "pending": 0.0,
+        "declined": 0.0
+      },
+      "previousPeriod": null,
+      "lastConversionDate": null,
+      "adjustments": []
+    }
+  ],
+  "dailyTotals": [
+    {
+      "date": "2026-08-16",
+      "uniqueClicks": 1815,
+      "conversions": 35,
+      "commissionSEK": 13901.68
+    },
+    {
+      "date": "2026-08-17",
+      "uniqueClicks": 2439,
+      "conversions": 47,
+      "commissionSEK": 18680.38
+    },
+    {
+      "date": "2026-08-18",
+      "uniqueClicks": 2610,
+      "conversions": 50,
+      "commissionSEK": 19983.67
+    },
+    {
+      "date": "2026-08-19",
+      "uniqueClicks": 2354,
+      "conversions": 45,
+      "commissionSEK": 18028.74
+    },
+    {
+      "date": "2026-08-20",
+      "uniqueClicks": 2524,
+      "conversions": 48,
+      "commissionSEK": 19332.03
+    },
+    {
+      "date": "2026-08-21",
+      "uniqueClicks": 2269,
+      "conversions": 44,
+      "commissionSEK": 17377.1
+    },
+    {
+      "date": "2026-08-22",
+      "uniqueClicks": 1561,
+      "conversions": 30,
+      "commissionSEK": 11955.45
+    },
+    {
+      "date": "2026-08-23",
+      "uniqueClicks": 2088,
+      "conversions": 40,
+      "commissionSEK": 15986.93
+    },
+    {
+      "date": "2026-08-24",
+      "uniqueClicks": 2354,
+      "conversions": 45,
+      "commissionSEK": 18028.74
+    },
+    {
+      "date": "2026-08-25",
+      "uniqueClicks": 2524,
+      "conversions": 48,
+      "commissionSEK": 19332.03
+    },
+    {
+      "date": "2026-08-26",
+      "uniqueClicks": 2269,
+      "conversions": 44,
+      "commissionSEK": 17377.1
+    },
+    {
+      "date": "2026-08-27",
+      "uniqueClicks": 2439,
+      "conversions": 47,
+      "commissionSEK": 18680.38
+    },
+    {
+      "date": "2026-08-28",
+      "uniqueClicks": 2610,
+      "conversions": 50,
+      "commissionSEK": 19983.67
+    },
+    {
+      "date": "2026-08-29",
+      "uniqueClicks": 1507,
+      "conversions": 29,
+      "commissionSEK": 11538.4
+    },
+    {
+      "date": "2026-08-30",
+      "uniqueClicks": 2020,
+      "conversions": 39,
+      "commissionSEK": 15465.62
+    },
+    {
+      "date": "2026-08-31",
+      "uniqueClicks": 2269,
+      "conversions": 44,
+      "commissionSEK": 17377.1
+    },
+    {
+      "date": "2026-09-01",
+      "uniqueClicks": 2439,
+      "conversions": 47,
+      "commissionSEK": 18680.38
+    },
+    {
+      "date": "2026-09-02",
+      "uniqueClicks": 2610,
+      "conversions": 50,
+      "commissionSEK": 19983.67
+    },
+    {
+      "date": "2026-09-03",
+      "uniqueClicks": 2354,
+      "conversions": 45,
+      "commissionSEK": 18028.74
+    },
+    {
+      "date": "2026-09-04",
+      "uniqueClicks": 2524,
+      "conversions": 48,
+      "commissionSEK": 19332.03
+    },
+    {
+      "date": "2026-09-05",
+      "uniqueClicks": 1452,
+      "conversions": 28,
+      "commissionSEK": 11121.35
+    },
+    {
+      "date": "2026-09-06",
+      "uniqueClicks": 1952,
+      "conversions": 37,
+      "commissionSEK": 14944.31
+    },
+    {
+      "date": "2026-09-07",
+      "uniqueClicks": 2610,
+      "conversions": 50,
+      "commissionSEK": 19983.67
+    },
+    {
+      "date": "2026-09-08",
+      "uniqueClicks": 2354,
+      "conversions": 45,
+      "commissionSEK": 18028.74
+    },
+    {
+      "date": "2026-09-09",
+      "uniqueClicks": 2524,
+      "conversions": 48,
+      "commissionSEK": 19332.03
+    },
+    {
+      "date": "2026-09-10",
+      "uniqueClicks": 2269,
+      "conversions": 44,
+      "commissionSEK": 17377.1
+    },
+    {
+      "date": "2026-09-11",
+      "uniqueClicks": 2439,
+      "conversions": 47,
+      "commissionSEK": 18680.38
+    },
+    {
+      "date": "2026-09-12",
+      "uniqueClicks": 1670,
+      "conversions": 32,
+      "commissionSEK": 12789.55
+    },
+    {
+      "date": "2026-09-13",
+      "uniqueClicks": 1883,
+      "conversions": 36,
+      "commissionSEK": 14422.99
+    },
+    {
+      "date": "2026-09-14",
+      "uniqueClicks": 2528,
+      "conversions": 49,
+      "commissionSEK": 19332.04
+    },
+    {
+      "date": "2026-09-15",
+      "uniqueClicks": 2363,
+      "conversions": 46,
+      "commissionSEK": 17292.05
+    },
+    {
+      "date": "2026-09-16",
+      "uniqueClicks": 2540,
+      "conversions": 50,
+      "commissionSEK": 18588.95
+    },
+    {
+      "date": "2026-09-17",
+      "uniqueClicks": 2717,
+      "conversions": 53,
+      "commissionSEK": 19885.86
+    },
+    {
+      "date": "2026-09-18",
+      "uniqueClicks": 2451,
+      "conversions": 48,
+      "commissionSEK": 17940.5
+    },
+    {
+      "date": "2026-09-19",
+      "uniqueClicks": 1682,
+      "conversions": 33,
+      "commissionSEK": 12311.94
+    },
+    {
+      "date": "2026-09-20",
+      "uniqueClicks": 1890,
+      "conversions": 37,
+      "commissionSEK": 13833.64
+    },
+    {
+      "date": "2026-09-21",
+      "uniqueClicks": 2540,
+      "conversions": 50,
+      "commissionSEK": 18588.95
+    },
+    {
+      "date": "2026-09-22",
+      "uniqueClicks": 2717,
+      "conversions": 53,
+      "commissionSEK": 19885.86
+    },
+    {
+      "date": "2026-09-23",
+      "uniqueClicks": 2451,
+      "conversions": 48,
+      "commissionSEK": 17940.5
+    },
+    {
+      "date": "2026-09-24",
+      "uniqueClicks": 2628,
+      "conversions": 52,
+      "commissionSEK": 19237.4
+    },
+    {
+      "date": "2026-09-25",
+      "uniqueClicks": 2363,
+      "conversions": 46,
+      "commissionSEK": 17292.05
+    },
+    {
+      "date": "2026-09-26",
+      "uniqueClicks": 1625,
+      "conversions": 32,
+      "commissionSEK": 11896.93
+    },
+    {
+      "date": "2026-09-27",
+      "uniqueClicks": 2174,
+      "conversions": 43,
+      "commissionSEK": 15908.69
+    },
+    {
+      "date": "2026-09-28",
+      "uniqueClicks": 2451,
+      "conversions": 48,
+      "commissionSEK": 17940.5
+    },
+    {
+      "date": "2026-09-29",
+      "uniqueClicks": 2628,
+      "conversions": 52,
+      "commissionSEK": 19237.4
+    },
+    {
+      "date": "2026-09-30",
+      "uniqueClicks": 2363,
+      "conversions": 46,
+      "commissionSEK": 17292.05
+    },
+    {
+      "date": "2026-10-01",
+      "uniqueClicks": 2540,
+      "conversions": 50,
+      "commissionSEK": 18588.95
+    },
+    {
+      "date": "2026-10-02",
+      "uniqueClicks": 2228,
+      "conversions": 44,
+      "commissionSEK": 16306.4
+    },
+    {
+      "date": "2026-10-03",
+      "uniqueClicks": 1286,
+      "conversions": 25,
+      "commissionSEK": 9415.17
+    },
+    {
+      "date": "2026-10-04",
+      "uniqueClicks": 1724,
+      "conversions": 34,
+      "commissionSEK": 12619.74
+    },
+    {
+      "date": "2026-10-05",
+      "uniqueClicks": 1937,
+      "conversions": 38,
+      "commissionSEK": 14179.48
+    },
+    {
+      "date": "2026-10-06",
+      "uniqueClicks": 2083,
+      "conversions": 41,
+      "commissionSEK": 15242.94
+    },
+    {
+      "date": "2026-10-07",
+      "uniqueClicks": 2228,
+      "conversions": 44,
+      "commissionSEK": 16306.4
+    },
+    {
+      "date": "2026-10-08",
+      "uniqueClicks": 2010,
+      "conversions": 39,
+      "commissionSEK": 14711.21
+    },
+    {
+      "date": "2026-10-09",
+      "uniqueClicks": 2155,
+      "conversions": 42,
+      "commissionSEK": 15774.67
+    },
+    {
+      "date": "2026-10-10",
+      "uniqueClicks": 1240,
+      "conversions": 24,
+      "commissionSEK": 9074.87
+    },
+    {
+      "date": "2026-10-11",
+      "uniqueClicks": 1666,
+      "conversions": 33,
+      "commissionSEK": 12194.35
+    },
+    {
+      "date": "2026-10-12",
+      "uniqueClicks": 2228,
+      "conversions": 44,
+      "commissionSEK": 16306.4
+    },
+    {
+      "date": "2026-10-13",
+      "uniqueClicks": 2010,
+      "conversions": 39,
+      "commissionSEK": 14711.21
+    },
+    {
+      "date": "2026-10-14",
+      "uniqueClicks": 2154,
+      "conversions": 44,
+      "commissionSEK": 15774.69
+    }
+  ]
+}

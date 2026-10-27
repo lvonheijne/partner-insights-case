@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Lexend", system-ui, sans-serif;
+  color: var(--text-default);
+  background: var(--surface-page-bg);
+}
+
+.page {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: var(--size-space-600) var(--size-space-400);
+}

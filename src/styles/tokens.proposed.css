@@ -1,0 +1,84 @@
+/*
+ * Proposed token set. Extends tokens.css; nothing existing is renamed or removed.
+ * Naming rule (already used in tokens.css): Figma "a/b/c" -> CSS "--a-b-c".
+ * Layer 1 = primitives (raw values). Layer 2 = semantic (named by purpose, alias primitives).
+ * Components should only use layer 2.
+ */
+:root {
+  /* ---------- Layer 1: primitives ---------- */
+  /* primary-blue */
+  --primary-blue-500: #0d1e79;
+  --primary-blue-400: #2c3e9e;
+  --primary-blue-50:  #e8ecfb;   /* new */
+
+  /* grayscale */
+  --grayscale-1000: #0b0c24;
+  --grayscale-700:  #4b4b5a;     /* new */
+  --grayscale-600:  #6d6d7c;
+  --grayscale-200:  #dfe0e3;
+  --grayscale-100:  #ececef;     /* new */
+  --grayscale-50:   #f7f7f8;
+
+  /* green / red / amber. 600 is too light for text on white (3.4:1), so text uses 800 on a 50 tint */
+  --green-800: #2b6b2b;          /* new */
+  --green-600: #449d44;
+  --green-50:  #e8f5e9;          /* promoted from raw hex in --status-success-bg */
+  --red-800:   #a12525;          /* new */
+  --red-600:   #e95858;
+  --red-50:    #fdecec;          /* new */
+  --amber-800: #7a4b00;          /* new */
+  --amber-50:  #fff3d6;          /* new */
+
+  /* spacing (value = px; rem assumes 16px root) */
+  --size-space-100: 0.25rem;     /* 4, new */
+  --size-space-200: 0.5rem;      /* 8 */
+  --size-space-300: 0.75rem;     /* 12, new */
+  --size-space-400: 1rem;        /* 16 */
+  --size-space-600: 1.5rem;      /* 24 */
+  --size-space-800: 2rem;        /* 32, new */
+
+  /* radius */
+  --size-radius-100: 0.25rem;    /* 4, new */
+  --size-radius-150: 0.375rem;   /* 6 */
+  --size-radius-200: 0.5rem;     /* 8, new (replaces the loose 8px in --radius-card) */
+  --size-radius-full: 999px;     /* new */
+
+  /* ---------- Layer 2: semantic ---------- */
+  /* text */
+  --text-default: var(--grayscale-1000);
+  --text-subtle:  var(--grayscale-600);
+  --text-inverse: #ffffff;                       /* new */
+
+  /* surface + border */
+  --surface-page-bg:   #f4f6fa;                  /* existing; no matching primitive yet */
+  --surface-card-bg:   #ffffff;                  /* new */
+  --surface-subtle-bg: var(--grayscale-50);      /* new: table header, row hover */
+  --border-default:    var(--grayscale-200);     /* new */
+  --border-focus:      var(--primary-blue-400);  /* new */
+  --button-primary-bg: var(--primary-blue-500);
+
+  /* status: bg + fg pairs, used by badge (and KPI delta) */
+  --status-success-bg: var(--green-50);
+  --status-success-fg: var(--green-800);
+  --status-warning-bg: var(--amber-50);
+  --status-warning-fg: var(--amber-800);
+  --status-danger-bg:  var(--red-50);
+  --status-danger-fg:  var(--red-800);
+  --status-info-bg:    var(--primary-blue-50);
+  --status-info-fg:    var(--primary-blue-500);
+  --status-neutral-bg: var(--grayscale-100);
+  --status-neutral-fg: var(--grayscale-700);
+
+  /* spacing, by purpose */
+  --space-badge-x:      var(--size-space-200);
+  --space-badge-y:      var(--size-space-100);
+  --space-card-padding: var(--size-space-600);
+  --space-card-gap:     var(--size-space-200);
+  --space-cell-x:       var(--size-space-400);
+  --space-cell-y:       var(--size-space-300);
+
+  /* radius, by purpose */
+  --radius-badge:   var(--size-radius-full);
+  --radius-control: var(--size-radius-150);
+  --radius-card:    var(--size-radius-200);
+}
