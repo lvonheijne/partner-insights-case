@@ -17,6 +17,31 @@ npm run dev
 Below the table there's a "Demo" checkbox, which isn't part of the design. It removes every brand from
 Sara's data so you can see the empty state. Nothing else in her data changes.
 
+## How this follows my prioritization
+
+My prioritization (in the Figma file) sorts the work into Now, Next and Later. This build is the **Now**
+column, plus the system clean-up that makes the rest cheaper.
+
+**Now: small, quick fixes that help large and small partners alike.** All four are in the code:
+
+- **Consistent, clear labels, numbers and tooltips:**
+  - one number format throughout
+  - a commission breakdown that answers "does Commission include pending?"
+  - KPI definitions
+  - explanations for "Not tracked" and "—"
+- **The table sorts by commission by default** to answer "which brands earn me money?". Every header sorts
+  on one click, aimed at the rage clicks.
+- **A change indicator on the KPI cards** compares with the previous 30 days.
+- **A sensible empty state:** no brands, or no brands that match the filters.
+
+**Clean up before adding features.** The token and component work comes before any new columns, because
+a tidy system makes the next features faster to build, for people and for AI agents.
+
+**Why this isn't a sales-led build.** I first leaned towards starting with Sales' request for EPC, more
+columns and an Excel export, since it's an unambiguous ask that's easy to execute. I changed my mind. The
+Customer Success tickets about the basics would keep coming, and those features wouldn't improve
+understanding of the page for either segment in the long run.
+
 ## Structure
 
 Each Figma component exists once in code, and the page is built from them. Components only use semantic
@@ -95,8 +120,10 @@ weight as one with 18 532.
 **Apply and Reset are disabled until there's something to do.** Changes in the filter bar are a draft
 until Apply. Apply is enabled only when the draft differs from what's applied, and Reset only when
 something differs from the defaults. Clarity shows people change the date range and never press Apply.
-An Apply button that lights up the moment something changes should make that step visible. Applying
-updates the applied state but doesn't change the numbers yet, because the data has nothing to filter by.
+An Apply button that lights up the moment something changes should make that step visible. It's an
+interim fix. Filters that apply immediately are in my Next column, pending data and engineering buy-in.
+Applying updates the applied state but doesn't change the numbers yet, because the data has nothing to
+filter by.
 Figma's Button has no disabled variant, so the disabled colours are new tokens (see Tokens).
 
 **Missing values explain themselves.** "Not tracked" in Clicks, and "—" in CVR and Last conversion, each
@@ -222,10 +249,35 @@ Still to fix in Figma:
 
 ## What I'd do next
 
+**Next, from my prioritization: discovery first, possibly in parallel with Now.**
+
+- **The Sales ask.** Find out what Sales is really after (avoiding churn or winning new clients) and how
+  urgent it is, before building EPC, extra columns, a column chooser or an Excel export (or CSV as a
+  smaller first step).
+- **Churn and inactivity among small partners.** Find out what actually drives it. Is it really that they
+  "can't tell which brands are worth their time", or is it lack of traffic, the brands themselves, or a
+  poor fit with their audience?
+- **Filters that apply immediately.** Check the data to see whether people usually change one filter or
+  several, and get engineering buy-in. Disabling Apply until there's a change is a cheap first step in
+  this build. If Clarity still shows people leaving without applying, filters should apply immediately.
+- **Trend graphs**, and graphs of the best-performing brands.
+
+**Later: ideas without evidence yet.**
+
+- Help partners find and evaluate new brands, to earn more.
+- Rework onboarding for new partners as a step up from the empty state. Needs input from Customer Success.
+- Move to an externally maintained design system. If we do it, do it before large new features.
+- A mobile-friendly layout. The responsive frames are already in this build. If partners turn out to use
+  mobile far more than the 17 % suggests, this moves up.
+- Rethink the page structure, e.g. does "what earns me money" belong in Earnings?
+- Saved views, formatted exports and scheduled exports, depending on demand.
+- An AI summary of what's changed.
+
+**Left to do in this code:**
+
 - Build the menu button and overlay for the sidebar below 1024 px.
 - Wire the filter bar and page buttons to real data, and keep table sort, filters and page in the URL.
   Clarity shows people reload this page.
-- Show each brand's change from the previous period, to answer "what changed, and why?".
 - Write unit tests for `sortRows`, `toRows` and the KPI totals, covering nulls, negative commission, NOK
   and unknown statuses.
 - Test the menus and tooltips with a screen reader. So far I've only checked them with the keyboard.
