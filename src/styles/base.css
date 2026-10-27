@@ -6,13 +6,66 @@
 
 body {
   margin: 0;
-  font-family: "Lexend", system-ui, sans-serif;
+  font-family: var(--font-family-brand);
   color: var(--text-default);
   background: var(--surface-page-bg);
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Layout: sidebar + page content, as in the 1440, 720 and 360 px frames */
+.app {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
 .page {
-  max-width: 72rem;
-  margin: 0 auto;
-  padding: var(--size-space-600) var(--size-space-400);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-section);
+  min-width: var(--size-space-0);
+  max-width: var(--size-content-max);
+  padding: var(--space-page);
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(var(--size-space-0), 1fr));
+  gap: var(--space-grid-gap);
+}
+
+@media (max-width: 1279px) {
+  .kpis {
+    grid-template-columns: repeat(2, minmax(var(--size-space-0), 1fr));
+  }
+}
+
+@media (max-width: 719px) {
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Demo-only control, outside the design */
+.demo-switch {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: var(--size-space-200);
+  padding: var(--size-space-200) var(--size-space-300);
+  border: var(--size-border-100) dashed var(--text-subtle);
+  border-radius: var(--radius-control);
+  background: var(--surface-card-bg);
+  color: var(--text-subtle);
+  font-size: var(--type-label-size);
+  cursor: pointer;
 }

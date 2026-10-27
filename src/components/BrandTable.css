@@ -1,0 +1,201 @@
+/* Card */
+.brand-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-600);
+  padding-block: var(--size-space-600);
+  border-radius: var(--radius-card);
+  background: var(--surface-table-bg);
+  min-width: var(--size-space-0);
+}
+
+.brand-table__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--size-space-300);
+  padding-inline: var(--space-cell-x);
+}
+
+.brand-table__title {
+  margin: var(--size-space-0);
+  font-size: var(--type-heading-2-size);
+  font-weight: var(--type-heading-2-weight);
+}
+
+.brand-table__count {
+  color: var(--text-subtle);
+  font-size: var(--type-label-size);
+}
+
+/* Table */
+.brand-table__scroll {
+  overflow-x: auto;
+}
+
+.brand-table__scroll:focus-visible {
+  outline: var(--size-focus-ring) solid var(--border-focus);
+  outline-offset: calc(-1 * var(--size-focus-ring));
+}
+
+.brand-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.brand-table th,
+.brand-table td {
+  padding: var(--space-cell-y) var(--space-cell-x);
+  border-bottom: var(--size-border-100) solid var(--border-default);
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Header cells: the button fills the cell so the whole cell is the click target */
+.brand-table thead th {
+  padding: var(--size-space-0);
+  background: var(--surface-table-header-bg);
+  color: var(--text-subtle);
+  font-size: var(--type-table-header-size);
+  font-weight: var(--type-table-header-weight);
+}
+
+.brand-table tbody th,
+.brand-table td {
+  background: var(--surface-table-bg);
+  color: var(--text-default);
+  font-family: var(--font-family-data);
+  font-size: var(--type-table-body-size);
+  font-weight: var(--font-weight-regular);
+  font-variant-numeric: tabular-nums;
+}
+
+.brand-table tbody tr:hover > * {
+  background: var(--surface-subtle-bg);
+}
+
+.brand-table .cell--end {
+  text-align: right;
+}
+
+.cell--muted {
+  color: var(--text-subtle);
+}
+
+.cell--negative {
+  color: var(--status-danger-fg);
+}
+
+/* Sticky brand column so the name stays in view while the numbers scroll sideways */
+.brand-table tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: var(--z-sticky);
+}
+
+.brand-table__scroll.is-scrolled tr > :first-child {
+  box-shadow: var(--size-border-200) var(--size-space-0) var(--size-space-200) calc(-1 * var(--size-space-100))
+    var(--border-default);
+}
+
+.brand-cell {
+  display: inline-block;
+  overflow: hidden;
+  max-width: var(--size-cell-text-max);
+  vertical-align: bottom;
+  text-overflow: ellipsis;
+}
+
+.cell-info {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-space-200);
+}
+
+.header-button {
+  display: flex;
+  align-items: center;
+  gap: var(--size-space-200);
+  width: 100%;
+  padding: var(--space-cell-y) var(--space-cell-x);
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.cell--end .header-button {
+  justify-content: flex-end;
+}
+
+.header-button:hover,
+.header-button.is-filtered,
+.header-button[aria-expanded="true"],
+th[aria-sort="ascending"] .header-button,
+th[aria-sort="descending"] .header-button {
+  color: var(--text-default);
+}
+
+.header-button:focus-visible {
+  outline: var(--size-focus-ring) solid var(--border-focus);
+  outline-offset: calc(-1 * var(--size-focus-ring));
+}
+
+.header-button__icon--asc {
+  transform: rotate(180deg);
+}
+
+/* Commission breakdown inside the tooltip */
+.breakdown dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--size-space-100) var(--size-space-400);
+  margin: var(--size-space-0);
+}
+
+.breakdown dd {
+  margin: var(--size-space-0);
+  font-family: var(--font-family-data);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.breakdown__muted {
+  color: var(--text-subtle);
+}
+
+.breakdown__note {
+  margin: var(--size-space-200) var(--size-space-0) var(--size-space-0);
+  padding-top: var(--size-space-200);
+  border-top: var(--size-border-100) solid var(--border-default);
+  color: var(--text-subtle);
+}
+
+/* Empty states */
+.brand-table__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-space-400);
+  padding: var(--size-space-800) var(--space-cell-x);
+  text-align: center;
+}
+
+.brand-table__empty-title {
+  margin: var(--size-space-0);
+  font-size: var(--type-heading-2-size);
+  font-weight: var(--type-heading-2-weight);
+}
+
+.brand-table__empty-text {
+  margin: var(--size-space-0);
+  color: var(--text-subtle);
+  font-size: var(--type-body-size);
+}
+
+@media (max-width: 719px) {
+  .brand-cell {
+    max-width: var(--size-cell-text-max-compact);
+  }
+}

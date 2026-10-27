@@ -1,30 +1,181 @@
 /*
- * Design tokens as CSS custom properties.
- * Meant to mirror the Figma variable collection "tokens (WIP)". Like the Figma file, it has not
- * been kept tidy.
+ * Design tokens as CSS custom properties. Mirrors the Figma variable collection "tokens".
+ * Naming rule: Figma "a/b/c" -> CSS "--a-b-c".
+ * Layer 1 = primitives (raw values). Layer 2 = semantic (named by purpose, alias primitives).
+ * Components only use layer 2. Layer 2 tokens marked "code only" have no Figma variable yet.
+ *
+ * Breakpoints can't be custom properties in media queries, so they live here as a comment:
+ *   720px  (--bp-md)  tablet: filters in a row, KPI cards 2 x 2
+ *   1024px (--bp-lg)  full sidebar, header buttons in a row
+ *   1280px (--bp-xl)  KPI cards 4 in a row
  */
 :root {
-  /* Primitives */
+  /* ---------- Layer 1: primitives ---------- */
+  /* primary-blue */
+  --primary-blue-600: #051151;
   --primary-blue-500: #0d1e79;
   --primary-blue-400: #2c3e9e;
+  --primary-blue-300: #1c3faa;
+  --primary-blue-50:  #e8ecfb;
+
+  /* grayscale */
   --grayscale-1000: #0b0c24;
-  --grayscale-600: #6d6d7c;
-  --grayscale-200: #dfe0e3;
-  --grayscale-50: #f7f7f8;
+  --grayscale-700:  #4b4b5a;
+  --grayscale-600:  #6d6d7c;
+  --grayscale-200:  #dfe0e3;
+  --grayscale-100:  #ececef;
+  --grayscale-50:   #f7f7f8;
+  --grayscale-0:    #ffffff;
+
+  /* green / red / amber. 600 is too light for text on white (3.4:1), so text uses 800 on a 50 tint */
+  --green-800: #2b6b2b;
   --green-600: #449d44;
-  --red-600: #e95858;
+  --green-50:  #e8f5e9;
+  --red-800:   #a12525;
+  --red-600:   #e95858;
+  --red-50:    #fdecec;
+  --amber-800: #7a4b00;
+  --amber-50:  #fff3d6;
 
-  /* Semantic */
-  --text-default: var(--grayscale-1000);
-  --text-subtle: var(--grayscale-600);
-  --button-primary-bg: var(--primary-blue-500);
-  --surface-page-bg: #f4f6fa;
-  --status-success-bg: #e8f5e9;
+  /* spacing (value = px; rem assumes 16px root) */
+  --size-space-0:   0;
+  --size-space-100: 0.25rem;     /* 4 */
+  --size-space-200: 0.5rem;      /* 8 */
+  --size-space-300: 0.75rem;     /* 12 */
+  --size-space-400: 1rem;        /* 16 */
+  --size-space-600: 1.5rem;      /* 24 */
+  --size-space-800: 2rem;        /* 32 */
 
-  /* Spacing and radius */
-  --size-space-200: 0.5rem;
-  --size-space-400: 1rem;
-  --size-space-600: 1.5rem;
-  --size-radius-150: 0.375rem;
-  --radius-card: 8px;
+  /* radius */
+  --size-radius-100: 0.25rem;    /* 4 */
+  --size-radius-150: 0.375rem;   /* 6 */
+  --size-radius-200: 0.5rem;     /* 8 */
+  --size-radius-full: 999px;
+
+  /* border width */
+  --size-border-100: 1px;
+  --size-border-200: 2px;
+
+  /* type. Figma text styles: heading 1, heading 2, body default, table header, table body, label */
+  --font-family-brand: "Lexend", system-ui, sans-serif;
+  --font-family-data:  "Inter", system-ui, sans-serif;
+  --font-size-100: 0.75rem;      /* 12 */
+  --font-size-200: 0.875rem;     /* 14 */
+  --font-size-400: 1.125rem;     /* 18 */
+  --font-size-700: 1.75rem;      /* 28 */
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --line-height-tight:  1.25;
+  --line-height-normal: 1.5;
+
+  /* fixed sizes */
+  --size-100: 0.875rem;          /* 14: small icon */
+  --size-200: 1.25rem;           /* 20: icon in controls */
+  --size-300: 2rem;              /* 32: pagination button */
+  --size-400: 2.5rem;            /* 40: avatar */
+  --size-500: 3rem;              /* 48: collapsed sidebar */
+  --size-800: 8rem;              /* 128: brand name, narrow screens */
+  --size-900: 9rem;              /* 144: brand name */
+  --size-1000: 15rem;            /* 240: dropdown menu */
+  --size-1100: 14.5rem;          /* 232: sidebar */
+  --size-1200: 18rem;            /* 288: tooltip */
+
+  /* ---------- Layer 2: semantic ---------- */
+  /* text */
+  --text-default:        var(--grayscale-1000);
+  --text-subtle:         var(--grayscale-600);
+  --text-inverse:        var(--grayscale-0);
+  --text-inverse-subtle: var(--grayscale-200);
+  --text-danger:         var(--red-800);           /* code only: Figma's Reset uses red/600, 3.4:1 on white */
+
+  /* surface + border */
+  --surface-page-bg:         #f4f6fa;              /* no matching primitive yet */
+  --surface-card-bg:         var(--grayscale-0);
+  --surface-table-bg:        var(--grayscale-0);
+  --surface-table-header-bg: var(--grayscale-100); /* code only: Figma uses status/neutral-bg here */
+  --surface-subtle-bg:       var(--grayscale-50);
+  --surface-nav-bg:          var(--primary-blue-500);  /* code only: Figma uses primary-blue/500 */
+  --surface-nav-item-active-bg: var(--primary-blue-300); /* code only: Figma uses primary-blue/300 */
+  --surface-nav-item-hover-bg:  var(--primary-blue-600); /* code only: Figma uses primary-blue/600 */
+  --surface-selected-bg:     var(--primary-blue-400);  /* code only: Figma's current page uses border/focus */
+  --surface-avatar-bg:       var(--red-50);            /* code only: Figma uses red/50 */
+  --text-avatar:             var(--primary-blue-400);  /* code only: Figma uses primary-blue/400 */
+  --border-default:          var(--grayscale-200);
+  --border-focus:            var(--primary-blue-400);
+
+  /* buttons */
+  --button-primary-default: var(--primary-blue-300);
+  --button-primary-bg:      var(--primary-blue-600);   /* Figma button/primary-bg, used for hover */
+  --button-disabled-bg:     var(--grayscale-100);      /* code only: Figma Button has no disabled variant */
+  --button-disabled-fg:     var(--grayscale-600);      /* code only */
+
+  /* status: bg + fg pairs, used by badge, KPI delta and banner */
+  --status-success-bg: var(--green-50);
+  --status-success-fg: var(--green-800);
+  --status-warning-bg: var(--amber-50);
+  --status-warning-fg: var(--amber-800);
+  --status-danger-bg:  var(--red-50);
+  --status-danger-fg:  var(--red-800);
+  --status-info-bg:    var(--primary-blue-50);
+  --status-info-fg:    var(--primary-blue-500);
+  --status-neutral-bg: var(--grayscale-100);
+  --status-neutral-fg: var(--grayscale-700);
+
+  /* spacing, by purpose */
+  --space-badge-x:      var(--size-space-200);
+  --space-badge-y:      var(--size-space-100);
+  --space-card-padding: var(--size-space-600);
+  --space-card-gap:     var(--size-space-200);
+  --space-cell-x:       var(--size-space-400);
+  --space-cell-y:       var(--size-space-300);
+  --space-page:         var(--size-space-800);     /* code only */
+  --space-section:      var(--size-space-600);     /* code only: gap between page sections */
+  --space-grid-gap:     var(--size-space-400);     /* code only: columns shared by filter bar and KPI cards */
+  --space-field-gap:    var(--size-space-100);     /* code only: label to control */
+  --space-button-group: var(--size-space-300);     /* code only: between buttons in a group */
+  --space-heading-gap:  var(--size-space-200);     /* code only: title to the line under it */
+
+  /* radius, by purpose */
+  --radius-badge:   var(--size-radius-full);
+  --radius-control: var(--size-radius-150);
+  --radius-card:    var(--size-radius-200);
+  --radius-tag:     var(--size-radius-100);        /* code only: NEW tag in the banner */
+
+  /* type, by purpose */
+  --type-heading-1-size:      var(--font-size-700);
+  --type-heading-1-weight:    var(--font-weight-semibold);
+  --type-heading-2-size:      var(--font-size-400);
+  --type-heading-2-weight:    var(--font-weight-semibold);
+  --type-body-size:           var(--font-size-200);
+  --type-button-weight:       var(--font-weight-medium);
+  --type-table-header-size:   var(--font-size-200);
+  --type-table-header-weight: var(--font-weight-medium);
+  --type-table-body-size:     var(--font-size-200);
+  --type-label-size:          var(--font-size-100);
+
+  /* sizes, by purpose (code only) */
+  --size-icon-sm:            var(--size-100);
+  --size-icon-md:            var(--size-200);
+  --size-pagination-item:    var(--size-300);
+  --size-avatar:             var(--size-400);
+  --size-sidebar:            var(--size-1100);
+  --size-sidebar-collapsed:  var(--size-500);
+  --size-menu:               var(--size-1000);
+  --size-tooltip:            var(--size-1200);
+  --size-cell-text-max:      var(--size-900);
+  --size-cell-text-max-compact: var(--size-800);
+  --size-content-max:        90rem;               /* 1440 frame */
+  --size-focus-ring:         var(--size-border-200);
+
+  /* stacking (code only) */
+  --z-sticky:  1;
+  --z-menu:    20;
+  --z-tooltip: 30;
+
+  /* state (code only) */
+  --opacity-disabled: 0.4;
+
+  /* elevation. Matches the Figma Dropdown Menu shadow */
+  --shadow-popover: 0 2px 4px 1px rgb(0 0 0 / 0.05);
 }

@@ -1,0 +1,60 @@
+.banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--size-space-400);
+  padding: var(--size-space-400);
+  border-radius: var(--radius-card);
+  background: var(--status-warning-bg);
+  color: var(--status-warning-fg);
+  font-size: var(--type-body-size);
+}
+
+.banner__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--size-space-400);
+  margin: var(--size-space-0);
+  line-height: var(--line-height-normal);
+}
+
+.banner__tag {
+  flex-shrink: 0;
+  padding: var(--size-space-100) var(--size-space-200);
+  border-radius: var(--radius-tag);
+  background: var(--status-warning-fg);
+  color: var(--text-inverse);
+  font-size: var(--type-label-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+}
+
+.banner__link {
+  color: inherit;
+}
+
+.banner__close {
+  flex-shrink: 0;
+  padding: var(--size-space-0) var(--size-space-100);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: none;
+  color: inherit;
+  font-family: var(--font-family-data);
+  font-size: var(--type-body-size);
+  cursor: pointer;
+}
+
+.banner__link:focus-visible,
+.banner__close:focus-visible {
+  outline: var(--size-focus-ring) solid var(--border-focus);
+  outline-offset: var(--size-border-100);
+}
+
+/* The 360 px frame drops the NEW tag. */
+@media (max-width: 719px) {
+  .banner__tag {
+    display: none;
+  }
+}

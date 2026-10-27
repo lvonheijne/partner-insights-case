@@ -1,0 +1,82 @@
+.dropdown-menu {
+  position: fixed;
+  z-index: var(--z-menu);
+  width: var(--size-menu);
+  max-width: calc(100vw - 2 * var(--size-space-400));
+  padding-bottom: var(--size-space-100);
+  border: var(--size-border-100) solid var(--border-default);
+  border-radius: var(--radius-card);
+  background: var(--surface-card-bg);
+  box-shadow: var(--shadow-popover);
+  font-family: var(--font-family-brand);
+}
+
+.dropdown-menu__group {
+  display: flex;
+  flex-direction: column;
+  margin: var(--size-space-0);
+  padding: var(--size-space-0);
+  border: 0;
+}
+
+.dropdown-menu__label {
+  padding: var(--size-space-200) var(--size-space-200) var(--size-space-100);
+  color: var(--text-subtle);
+  font-size: var(--type-label-size);
+}
+
+.dropdown-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--size-space-200);
+  width: 100%;
+  padding: var(--size-space-100) var(--size-space-200);
+  border: 0;
+  border-radius: var(--radius-card);
+  background: none;
+  color: var(--text-default);
+  font: inherit;
+  font-size: var(--type-body-size);
+  line-height: var(--line-height-normal);
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-menu__item:hover,
+.dropdown-menu__item:focus-within {
+  background: var(--surface-subtle-bg);
+}
+
+.dropdown-menu__item:focus-visible {
+  outline: var(--size-focus-ring) solid var(--border-focus);
+  outline-offset: calc(-1 * var(--size-focus-ring));
+}
+
+.dropdown-menu__item:disabled {
+  color: var(--text-subtle);
+  cursor: default;
+}
+
+.dropdown-menu__item input {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+  margin: var(--size-space-0);
+  accent-color: var(--button-primary-default);
+}
+
+.dropdown-menu__item-label {
+  flex: 1;
+}
+
+.dropdown-menu__count {
+  color: var(--text-subtle);
+  font-family: var(--font-family-data);
+  font-variant-numeric: tabular-nums;
+}
+
+.dropdown-menu__separator {
+  width: 100%;
+  margin: var(--size-space-100) var(--size-space-0);
+  border: 0;
+  border-top: var(--size-border-100) solid var(--border-default);
+}

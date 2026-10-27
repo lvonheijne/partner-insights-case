@@ -1,0 +1,112 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-space-200) var(--size-space-800);
+  padding-inline: var(--space-cell-x);
+  color: var(--text-subtle);
+  font-family: var(--font-family-brand);
+  font-size: var(--type-label-size);
+}
+
+.pagination__summary {
+  margin: var(--size-space-0);
+}
+
+.pagination__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-space-400) var(--size-space-800);
+}
+
+.pagination__size {
+  display: flex;
+  align-items: center;
+  gap: var(--size-space-100);
+}
+
+.pagination__size select {
+  padding: var(--size-space-100);
+  border: var(--size-border-100) solid transparent;
+  border-radius: var(--radius-control);
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.pagination__size select:hover {
+  border-color: var(--border-default);
+}
+
+.pagination__pages {
+  display: flex;
+  align-items: center;
+  gap: var(--size-space-100);
+  margin: var(--size-space-0);
+  padding: var(--size-space-0);
+  list-style: none;
+  font-size: var(--type-body-size);
+}
+
+.pagination__page,
+.pagination__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-pagination-item);
+  height: var(--size-pagination-item);
+  padding: var(--size-space-0) var(--size-space-200);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.pagination__page:hover,
+.pagination__step:hover:not(:disabled) {
+  background: var(--surface-subtle-bg);
+  color: var(--text-default);
+}
+
+.pagination__page[aria-current="page"] {
+  background: var(--surface-selected-bg);
+  color: var(--text-inverse);
+  font-weight: var(--font-weight-medium);
+}
+
+.pagination__step:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: default;
+}
+
+.pagination__page:focus-visible,
+.pagination__step:focus-visible,
+.pagination__size select:focus-visible {
+  outline: var(--size-focus-ring) solid var(--border-focus);
+  outline-offset: var(--size-border-100);
+}
+
+.pagination__prev { transform: rotate(90deg); }
+.pagination__next { transform: rotate(-90deg); }
+
+.pagination__gap {
+  min-width: var(--size-space-400);
+  text-align: center;
+}
+
+@media (max-width: 719px) {
+  .pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagination__controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

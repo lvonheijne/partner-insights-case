@@ -1,0 +1,38 @@
+/*
+ * The filter bar shares the KPI cards' column grid, so the dropdowns and the Apply group line up with
+ * the cards above and below them. 1440: three dropdowns + buttons in four columns. 720: three columns,
+ * buttons on their own row. 360: everything stacks.
+ */
+.filter-bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(var(--size-space-0), 1fr));
+  align-items: end;
+  gap: var(--space-grid-gap);
+}
+
+/* The wrapper is only for markup; its dropdowns sit directly in the grid. */
+.filter-bar__fields {
+  display: contents;
+}
+
+.filter-bar__buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-button-group);
+}
+
+@media (max-width: 1279px) {
+  .filter-bar {
+    grid-template-columns: repeat(3, minmax(var(--size-space-0), 1fr));
+  }
+
+  .filter-bar__buttons {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 719px) {
+  .filter-bar {
+    grid-template-columns: 1fr;
+  }
+}
